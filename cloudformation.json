@@ -35,6 +35,29 @@
           ]
         }
       }
+    },
+    "cloudfrontDistribution": {
+      "Type": "AWS::CloudFront::Distribution",
+      "Properties": {
+        "DistributionConfig": {
+          "CacheBehaviors": {
+            "Compress": true
+          },
+          "CustomErrorResponses": {
+            "ErrorCode": 404,
+            "ResponseCode": 200,
+            "ResponsePagePath": "/index.html"
+          },
+          "DefaultRootObject": "index.html",
+          "Enabled": true,
+          "HttpVersion": "http2",
+          "Origins": [
+            {
+              "Ref": "Bucket"
+            }
+          ]
+        }
+      }
     }
   },
   "Parameters": {
