@@ -49,6 +49,7 @@ workflows:
       - deploy:
           requires:
             - build
+          context: AWS
           filters:
             branches:
               only: master

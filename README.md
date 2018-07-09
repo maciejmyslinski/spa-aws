@@ -5,7 +5,7 @@ This repository is for exploration purposes on how to configure Continious Deliv
 ## Action log
 * aws: Create CircleCi user with programmatic access and admin policy
 * circleci: Create context named AWS
-* circleci, aws context: add `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY` env variables
+* circleci, aws context: add `AWS_ACCESS_KEY_ID`, `AWS_DEFAULT_REGION`, and `AWS_SECRET_ACCESS_KEY` env variables
 * repo: create circleci config file
 
 ## Resources
