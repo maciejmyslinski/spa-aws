@@ -100,5 +100,12 @@
     "ProjectName": {
       "Type": "String"
     }
+  },
+  "Outputs": {
+    "url": {
+      "Value": {
+        "Fn::GetAtt": ["cloudfrontDistribution", "DomainName"]
+      }
+    }
   }
 }
