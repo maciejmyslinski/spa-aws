@@ -4,13 +4,12 @@
       "Type": "AWS::S3::Bucket",
       "Properties": {
         "AccessControl": "Private",
-        "BucketName": "spa-aws",
+        "BucketName": "${ProjectName}-${BranchName}",
         "WebsiteConfiguration": {
           "IndexDocument": "index.html"
         }
       }
     },
-
     "s3BucketPolicy": {
       "Type": "AWS::S3::BucketPolicy",
       "Properties": {
@@ -25,11 +24,19 @@
               "Effect": "Allow",
               "Principal": "*",
               "Action": ["s3:GetObject"],
-              "Resource": ["arn:aws:s3:::spa-aws/*"]
+              "Resource": ["arn:aws:s3:::${ProjectName}-${BranchName}/*"]
             }
           ]
         }
       }
+    }
+  },
+  "Parameters": {
+    "BranchName": {
+      "Type": "String"
+    },
+    "ProjectName": {
+      "Type": "String"
     }
   }
 }

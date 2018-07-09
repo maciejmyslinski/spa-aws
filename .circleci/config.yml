@@ -39,10 +39,10 @@ jobs:
           command: sudo pip install awscli
       - run:
           name: Provision infrastructure
-          command: aws cloudformation deploy --stack-name spa-aws --template-file ./cloudformation.json --no-fail-on-empty-changeset
+          command: aws cloudformation deploy --stack-name spa-aws --template-file ./cloudformation.json --no-fail-on-empty-changeset --parameter-overrides ProjectName=$CIRCLE_PROJECT_REPONAME BranchName=$CIRCLE_BRANCH
       - run:
           name: Deploy to S3
-          command: aws s3 sync ./build s3://spa-aws
+          command: aws s3 sync ./build s3://$CIRCLE_PROJECT_REPONAME-$CIRCLE_BRANC
 
 workflows:
   version: 2

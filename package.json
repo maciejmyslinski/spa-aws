@@ -15,8 +15,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "stylelint": "stylelint \"src/**/*.scss\"",
-    "eslint": "eslint \"src/**/*.js\"",
-    "cloudformation": "aws cloudformation deploy --stack-name spa-aws --template-file ./cloudformation.json",
-    "deploy": "aws s3 sync ./build s3://spa-aws"
+    "eslint": "eslint \"src/**/*.js\""
   }
 }
