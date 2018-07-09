@@ -42,7 +42,25 @@
         "DistributionConfig": {
           "CacheBehaviors": {
             "Compress": true,
-            "ViewerProtocolPolicy": "redirect-to-https"
+            "ViewerProtocolPolicy": "redirect-to-https",
+            "ForwardedValues": {
+              "QueryString": false
+            },
+            "PathPattern": "*",
+            "TargetOriginId": {
+              "Fn::Sub": "BucketUrl"
+            }
+          },
+          "DefaultCacheBehavior": {
+            "Compress": true,
+            "ViewerProtocolPolicy": "redirect-to-https",
+            "ForwardedValues": {
+              "QueryString": false
+            },
+            "PathPattern": "*",
+            "TargetOriginId": {
+              "Fn::Sub": "BucketUrl"
+            }
           },
           "CustomErrorResponses": {
             "ErrorCode": 404,
