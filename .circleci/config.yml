@@ -35,8 +35,11 @@ jobs:
           name: Install awscli
           command: sudo pip install awscli
       - run:
+          name: Provision infrastructure
+          command: aws cloudformation deploy --stack-name spa-aws --template-file ./cloudformation.json
+      - run:
           name: Deploy to S3
-          command: aws s3 sync build s3://circle-production-static-site/docs/ --delete
+          command: aws s3 sync ./build s3://spa-aws
 
 workflows:
   version: 2
