@@ -41,7 +41,8 @@
       "Properties": {
         "DistributionConfig": {
           "CacheBehaviors": {
-            "Compress": true
+            "Compress": true,
+            "ViewerProtocolPolicy": "redirect-to-https"
           },
           "CustomErrorResponses": {
             "ErrorCode": 404,
@@ -55,7 +56,10 @@
             {
               "Ref": "Bucket"
             }
-          ]
+          ],
+          "ViewerCertificate": {
+            "CloudFrontDefaultCertificate": true
+          }
         }
       }
     }
