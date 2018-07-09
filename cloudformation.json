@@ -54,7 +54,15 @@
           "HttpVersion": "http2",
           "Origins": [
             {
-              "Ref": "Bucket"
+              "DomainName": {
+                "Fn::Sub": "BucketUrl"
+              },
+              "Id": {
+                "Fn::Sub": "BucketUrl"
+              },
+              "CustomOriginConfig": {
+                "OriginProtocolPolicy": "https-only"
+              }
             }
           ],
           "ViewerCertificate": {
@@ -70,6 +78,13 @@
     },
     "ProjectName": {
       "Type": "String"
+    }
+  },
+  "Outputs": {
+    "BucketUrl": {
+      "Value": {
+        "Fn::GetAtt": ["Bucket", "WebsiteURL"]
+      }
     }
   }
 }
