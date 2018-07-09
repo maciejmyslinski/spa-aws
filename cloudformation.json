@@ -60,7 +60,7 @@
               "QueryString": false
             },
             "TargetOriginId": {
-              "Fn::Sub": "BucketUrl"
+              "Fn::Sub": "${BucketUrl}"
             }
           },
           "CustomErrorResponses": [
@@ -76,10 +76,10 @@
           "Origins": [
             {
               "DomainName": {
-                "Fn::Sub": "BucketUrl"
+                "Fn::Sub": "${BucketUrl}"
               },
               "Id": {
-                "Fn::Sub": "BucketUrl"
+                "Fn::Sub": "${BucketUrl}"
               },
               "CustomOriginConfig": {
                 "OriginProtocolPolicy": "https-only"
