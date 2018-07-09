@@ -26,6 +26,7 @@ jobs:
           paths:
             - node_modules
             - build
+            - cloudformation.json
   deploy:
     docker:
       - image: circleci/python:2.7-jessie
