@@ -39,7 +39,7 @@ jobs:
           command: sudo pip install awscli
       - run:
           name: Provision infrastructure
-          command: aws cloudformation deploy --stack-name spa-aws --template-file ./cloudformation.json
+          command: aws cloudformation deploy --stack-name spa-aws --template-file ./cloudformation.json --no-fail-on-empty-changeset
       - run:
           name: Deploy to S3
           command: aws s3 sync ./build s3://spa-aws
