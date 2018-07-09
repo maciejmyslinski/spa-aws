@@ -4,7 +4,9 @@
       "Type": "AWS::S3::Bucket",
       "Properties": {
         "AccessControl": "Private",
-        "BucketName": "${ProjectName}-${BranchName}",
+        "BucketName": {
+          "Fn::Sub": "${ProjectName}-${BranchName}"
+        },
         "WebsiteConfiguration": {
           "IndexDocument": "index.html"
         }
@@ -24,7 +26,11 @@
               "Effect": "Allow",
               "Principal": "*",
               "Action": ["s3:GetObject"],
-              "Resource": ["arn:aws:s3:::${ProjectName}-${BranchName}/*"]
+              "Resource": [
+                {
+                  "Fn::Sub": "arn:aws:s3:::${ProjectName}-${BranchName}/*"
+                }
+              ]
             }
           ]
         }
