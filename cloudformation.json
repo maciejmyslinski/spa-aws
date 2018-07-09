@@ -49,7 +49,7 @@
               },
               "PathPattern": "*",
               "TargetOriginId": {
-                "Fn::Sub": "BucketUrl"
+                "Fn::GetAtt": ["Bucket", "WebsiteURL"]
               }
             }
           ],
@@ -60,7 +60,7 @@
               "QueryString": false
             },
             "TargetOriginId": {
-              "Fn::Sub": "${BucketUrl}"
+              "Fn::GetAtt": ["Bucket", "WebsiteURL"]
             }
           },
           "CustomErrorResponses": [
@@ -76,10 +76,10 @@
           "Origins": [
             {
               "DomainName": {
-                "Fn::Sub": "${BucketUrl}"
+                "Fn::GetAtt": ["Bucket", "WebsiteURL"]
               },
               "Id": {
-                "Fn::Sub": "${BucketUrl}"
+                "Fn::GetAtt": ["Bucket", "WebsiteURL"]
               },
               "CustomOriginConfig": {
                 "OriginProtocolPolicy": "https-only"
@@ -99,13 +99,6 @@
     },
     "ProjectName": {
       "Type": "String"
-    }
-  },
-  "Outputs": {
-    "BucketUrl": {
-      "Value": {
-        "Fn::GetAtt": ["Bucket", "WebsiteURL"]
-      }
     }
   }
 }
